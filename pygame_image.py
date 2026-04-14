@@ -31,18 +31,22 @@ def main():
         diff_x, diff_y = -1, 0
 
         key_lst = pg.key.get_pressed()
+        a = 0
+        b = 0
+        c = 0
+        d = 0
+
         if key_lst[pg.K_UP]:
-            # kk_rct.move_ip((diff_x, diff_y))
-            kk_rct.move_ip((0, -1))
+
+            d = 1
 
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0, +1)
+            a = 1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1, 0)
+            b = 1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+1, 0)
-        else:
-            kk_rct.move_ip(-1, 0)
+            c = 2
+        kk_rct.move_ip(-1 - b + c, +a - d)
 
         x = tmr % 3200
         screen.blit(bg_img, [-x, 0])
